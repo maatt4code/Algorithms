@@ -1,20 +1,10 @@
 #pragma once
 
-#include <iostream>
-
-using namespace std;
+#include <array>
 
 template<int N>
-inline void rotateSquareMatrix(array< array<int, N>, N>& mtrx)
+inline void rotateSquareMatrix(std::array< array<int, N>, N>& mtrx)
 {
-    cout << "#### Original matrix ##################################################################" << endl;
-    for( const auto& r : mtrx) {
-        for( const auto& c : r ) {
-            cout << c << ",";
-        }
-        cout << endl;
-    }
-    
     // We rotate the matrix layer by layer, from outside towards the center,
     // So you actually only have to do n/2 layers. Layers eg:
     // 0 0 0 0 0 0 * 0
@@ -44,20 +34,13 @@ inline void rotateSquareMatrix(array< array<int, N>, N>& mtrx)
             mtrx[i][last] = mtrx[last][last-i+first];
             mtrx[last][last-i+first] = mtrx[last-i+first][first];
             mtrx[last-i+first][first] = tmp;
-            //cout << "--- Layer " << layer << ", --- First " << first << ", Last " << last << "-------------------------------" << endl;
+            //std::cout << "--- Layer " << layer << ", --- First " << first << ", Last " << last << "-------------------------------" << std::endl;
             //for( const auto& r : mtrx) {
             //    for( const auto& c : r ) {
-            //        cout << c << ",";
+            //        std::cout << c << ",";
             //    }
-            //    cout << endl;
+            //    std::cout << endl;
             //}
         }
-    }
-    cout << "#### Rotated matrix ##################################################################" << endl;
-    for( const auto& r : mtrx) {
-        for( const auto& c : r ) {
-            cout << c << ",";
-        }
-        cout << endl;
     }
 };
