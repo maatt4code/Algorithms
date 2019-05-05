@@ -2,6 +2,9 @@
 
 #include <array>
 
+/*
+ * Given a square metric, this function rotates it anto-clockwise by 90 degrees
+ */
 template<int N>
 inline void rotateSquareMatrix(std::array< array<int, N>, N>& mtrx)
 {
