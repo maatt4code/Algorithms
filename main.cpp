@@ -1,4 +1,5 @@
 #include "RotateSquareMatriix.hpp"
+#include "FindPivotElement.hpp"
 
 #include <iostream>
 
@@ -34,5 +35,19 @@ int main(int argc, char** argv)
             cout << endl;
         }
     }
+    
+    // rotated sequence
+    {
+        vector<int> arr{3,4,5,6,1,2};
+        cout << findPivotSequentialSearch(arr) << endl;
+        cout << findPivotBinarySearch(arr) << endl;
+    }
+    // non-rotated sequence
+    {
+        vector<int> arr{1,2,3,4,5,6};
+        cout << findPivotSequentialSearch(arr) << endl;
+        cout << findPivotBinarySearch(arr) << endl;
+    }
+    
     return 0;
 }
