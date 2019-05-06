@@ -1,5 +1,6 @@
 #include "RotateSquareMatriix.hpp"
 #include "FindPivotElement.hpp"
+#include "ReverseStuff.hpp"
 
 #include <iostream>
 
@@ -48,6 +49,16 @@ int main(int argc, char** argv)
         cout << findPivotSequentialSearch(arr) << endl;
         cout << findPivotBinarySearch(arr) << endl;
     }
-    
+
+    // reverse words and sentences
+    {
+        string test = "reversal on that list, and re-join that list into a string before returning it.";
+        reverseString(test);
+        cout << test << endl; 
+        reverseString(test);
+        cout << test << endl; 
+        reverseWords(test); 
+        cout << test << endl;        
+    }
     return 0;
 }
