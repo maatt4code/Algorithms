@@ -13,7 +13,7 @@
  */
 // eg 3 4 5 6 1 2
 
-int findPivotSequentialSearch(std::vector<int> arr)
+inline int findPivotSequentialSearch(std::vector<int> arr)
 {
     const int sz = arr.size();
     if(arr[sz-1] > arr[0])
@@ -25,9 +25,9 @@ int findPivotSequentialSearch(std::vector<int> arr)
     }
     // never reached
     return -1;
-}
+};
 
-int findPivotBinarySearch(std::vector<int> arr, int minIdx, int maxIdx)
+inline int findPivotBinarySearchImpl(std::vector<int> arr, int minIdx, int maxIdx)
 {
     int midIdx = (minIdx + maxIdx)/2;
     // found it (6) ** 1
@@ -39,7 +39,15 @@ int findPivotBinarySearch(std::vector<int> arr, int minIdx, int maxIdx)
     // if first element of the array is less than the mid element
     // then pivot is in the higher (right) part
     if( arr[minIdx] < arr[midIdx-1] )
-        return findPivotBinarySearch( arr, midIdx + 1, maxIdx );
+        return findPivotBinarySearchImpl( arr, midIdx + 1, maxIdx );
     // otherwise it is on the left
-    return findPivotBinarySearch( arr, minIdx, midIdx - 1 );
+    return findPivotBinarySearchImpl( arr, minIdx, midIdx - 1 );
+};
+
+inline int findPivotBinarySearch(std::vector<int> arr)
+{
+    const int sz = arr.size();
+    if(arr[sz-1] > arr[0])
+        return 0;
+    return findPivotBinarySearchImpl(arr, 0, arr.size()-1);
 }
