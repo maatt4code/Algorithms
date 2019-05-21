@@ -60,5 +60,13 @@ int main(int argc, char** argv)
         reverseWords(test); 
         cout << test << endl;        
     }
+    // Running Median
+    {
+        RunningMedian med(5);
+        std::vector<int64_t> test;
+        for( int64_t i=0 ; i<20 ; ++i )
+            test.push_back(i);
+        med.print(test);
+    }
     return 0;
 }
