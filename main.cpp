@@ -1,6 +1,7 @@
 #include "RotateSquareMatriix.hpp"
 #include "FindPivotElement.hpp"
 #include "ReverseStuff.hpp"
+#include "RunningMedian.hpp"
 
 #include <iostream>
 
